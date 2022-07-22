@@ -1,0 +1,5 @@
+20220721	08:21:40	d7984d4e-4cac-42b1-b395-b4a5b701a55d	Error /t Not Allowed By CORS
+20220721	08:21:52	0c5842b4-ace5-4d20-81e1-7c0a877e655b	Error	Not Allowed By CORS
+20220721	09:10:25	718f59d8-81ec-4715-b3a4-c6c1c9cc27ab	Error	ENOENT: no such file or directory, stat '/Users/komronsultonov/Desktop/node_dave_gray/lesson07/express_intro/routes/views/index.html'
+20220721	09:46:53	14d52791-f7f1-4088-a3cc-56b714e1ed86	TypeError	res.accepts is not a function
+20220721	09:47:17	a6e3a590-9236-41d1-855c-dfd5b9b7bcc4	TypeError	res.accepts is not a function
