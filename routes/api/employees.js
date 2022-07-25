@@ -1,21 +1,14 @@
 const express = require('express')
-const path = require('path')
 const router = express.Router()
-const {
-    getAllEmployees,
-    createNewEmployee,
-    updateEmployee,
-    deleteEmployee,
-    getEmployee
-} = require('../../controllers/employeesController')
-
+const employeesController = require('../../controllers/employeesController')
+const {verifyJwt} = require('../../middleware/verifyJwt')
 router.route('/')
-    .get(getAllEmployees)
-    .post(createNewEmployee)
-    .put(updateEmployee)
-    .delete(deleteEmployee)
+    .get(verifyJwt, employeesController.getAllEmployees)
+    .post(verifyJwt, employeesController.createNewEmployee)
+    .put(verifyJwt, employeesController.updateEmployee)
+    .delete(verifyJwt, employeesController.deleteEmployee)
 
 router.route('/:id')
-    .get(getEmployee)
+    .get(verifyJwt, employeesController.getEmployee)
 
 module.exports = router

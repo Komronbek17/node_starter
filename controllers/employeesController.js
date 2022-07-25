@@ -13,7 +13,7 @@ const getAllEmployees = (req, res) => {
 }
 
 const createNewEmployee = (req, res) => {
-    const lastId = data.employees[this.employees.length - 1].id + 1 || 1
+    const lastId = data.employees[data.employees.length - 1].id + 1 || 1
     const newEmployee = {
         id: lastId,
         firstname: req.body.firstname,
@@ -34,7 +34,7 @@ const updateEmployee = (req, res) => {
     const empIndex = data.employees.findIndex(emp => emp.id === parseInt(req.body.id))
     if (empIndex === -1) {
         res.status(400).json({
-            "message": `Employee ID ${req.body.id} not found`
+            "message": `Employee ID ${req.body.id} not found`,
         })
     } else {
         data.employees[empIndex].firstname = req.body.firstname
@@ -52,11 +52,12 @@ const deleteEmployee = (req, res) => {
     } else {
         const {id: removingId} = data.employees[empIndex]
         data.employees = data.employees.filter(emp => emp.id !== removingId)
+        res.json(data.employees)
     }
 }
 
 const getEmployee = (req, res) => {
-    const empIndex = data.employees.findIndex(emp => emp.id === parseInt(req.body.id))
+    const empIndex = data.employees.findIndex(emp => emp.id === parseInt(req.params.id))
     if (empIndex === -1) {
         res.status(400).json({
             "message": `Employee ID ${req.body.id} not found`

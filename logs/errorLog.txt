@@ -3,3 +3,14 @@
 20220721	09:10:25	718f59d8-81ec-4715-b3a4-c6c1c9cc27ab	Error	ENOENT: no such file or directory, stat '/Users/komronsultonov/Desktop/node_dave_gray/lesson07/express_intro/routes/views/index.html'
 20220721	09:46:53	14d52791-f7f1-4088-a3cc-56b714e1ed86	TypeError	res.accepts is not a function
 20220721	09:47:17	a6e3a590-9236-41d1-855c-dfd5b9b7bcc4	TypeError	res.accepts is not a function
+20220722	11:54:25	27b1ec21-92fc-4ed2-a5e2-f916d2bd30df	TypeError	Cannot read properties of undefined (reading 'length')
+20220722	12:01:35	91982dd9-7440-42da-a09d-0d61d39c4f56	TypeError	Converting circular structure to JSON
+    --> starting at object with constructor 'Socket'
+    |     property 'parser' -> object with constructor 'HTTPParser'
+    --- property 'socket' closes the circle
+20220722	12:11:28	a04085ed-37fa-4872-8039-08f832dcf73d	TypeError	Converting circular structure to JSON
+    --> starting at object with constructor 'Socket'
+    |     property 'parser' -> object with constructor 'HTTPParser'
+    --- property 'socket' closes the circle
+20220722	12:13:06	6a8c4704-fccb-460b-b5e6-a9d64cc5f017	Error	Cannot set headers after they are sent to the client
+20220722	15:30:30	37ae46f2-1b23-402c-9fd3-09710ec89e07	Error	Cannot set headers after they are sent to the client

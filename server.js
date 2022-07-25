@@ -5,7 +5,7 @@ const cors = require('cors')
 const {logger} = require('./middleware/logEvents')
 const {errorHandler} = require('./middleware/errorHandler')
 const corsOptions = require('./config/corsOptions')
-const PORT = process.env.PORT || 3500;
+const PORT = process.env.PORT || 3500
 
 app.use(express.urlencoded({
     extended: false
@@ -22,46 +22,48 @@ app.use('/', staticFiles)
 app.use('/subdirectory', staticFiles)
 
 app.use('/', require('./routes/root'))
+app.use('/login', require('./routes/auth'))
+app.use('/register', require('./routes/register'))
+app.use('/employees', require('./routes/api/employees'))
 app.use('/subdirectory', require('./routes/subdirectory'))
-app.use('/employees',require('./routes/api/employees'))
 
 // Route handlers
 app.get('/hello(.html)?', (req, res, next) => {
-    console.log('attempted to load hello.html');
+    console.log('attempted to load hello.html')
     next()
 }, (req, res) => {
-    res.send('Hello World!');
-});
+    res.send('Hello World!')
+})
 
 
 // chaining route handlers
 const one = (req, res, next) => {
-    console.log('one');
-    next();
+    console.log('one')
+    next()
 }
 
 const two = (req, res, next) => {
-    console.log('two');
-    next();
+    console.log('two')
+    next()
 }
 
 const three = (req, res) => {
-    console.log('three');
-    res.send('Finished!');
+    console.log('three')
+    res.send('Finished!')
 }
 
-app.get('/chain(.html)?', [one, two, three]);
+app.get('/chain(.html)?', [one, two, three])
 
 /*
 app.get('/!*', (req, res) => {
-    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
+    res.status(404).sendFile(path.join(__dirname, 'views', '404.html'))
 })
 */
 
 app.all('*', (req, res) => {
     res.status(404)
     if (req.accepts('html')) {
-        res.sendFile(path.join(__dirname, 'views', '404.html'));
+        res.sendFile(path.join(__dirname, 'views', '404.html'))
     } else if (req.accepts('json')) {
         res.json({
             error: '404 Not Found'
@@ -73,4 +75,4 @@ app.all('*', (req, res) => {
 
 app.use(errorHandler)
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
